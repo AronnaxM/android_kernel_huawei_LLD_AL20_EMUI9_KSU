@@ -1,8 +1,14 @@
 # android_kernel_huawei_LLD_EMUI9_KernelSU
 
-荣耀9i（LLD-AL20和LLD-AL30）的emui9内核支持KernelSU
+荣耀9i（LLD-AL20和LLD-AL30）的emui9内核 支持KernelSU
 
-从zhz8951那里~~剽窃~~抄来的
+从zhz8951那里 ~~剽窃~~ 抄来的
 
-Actions一遍跑过，实测KSU管理器1.0.1显示GKI模式生效，但是Wi-Fi模块出现故障，无法正常连接，具体表现为Wi-Fi密码输入正确但显示密码错误无法连接
-已确定此问题由于机型不同导致，此内核在LLD-AL30上工作无误但LLD-AL20存在上述问题
+实测KSU管理器1.0.1显示GKI模式生效，但是WiFi模块出现故障，无法正常连接，具体表现为WiFi密码输入正确但显示密码错误无法连接
+已确定此问题由于机型不同导致，此内核在LLD-AL30上工作无误 但LLD-AL20存在上述问题
+
+目前此内核在LLD-AL20上出现的WiFi故障无可行解决方案，此项目目前仅适用于想尝试KSU时刷入，并将在修复此问题前保持归档
+
+如果你也遇到了Magsik修补recovery_ramdisk分区后随机性出现的Root权限丢失情况，可以尝试以下这个方案：
+先刷入Magisk，备份各分区，后使用APatch修补提取后的Kernel分区并刷回
+由于APatch刷入后无法运行ZygiskNext等模块（内核不支持，重新编译了刷回去也不开机），APatch仅用于在Magisk的Root权限丢失时提供一个su权限便于直接在Magisk管理器内重新安装。
